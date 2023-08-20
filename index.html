@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Shopping Paradise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            clockElement.textContent = timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to update the clock
+        updateClock();
+    </script>
+    <style>
+        /* Reset some default styling */
+        body, h1, h2, p, img, a {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        /* Your global CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation styles */
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Hero section styles */
+        .home-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff3366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        /* Shop section styles */
+        .featured-products {
+            padding: 50px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .product-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-price {
+            color: #ff3366;
+            margin-top: 5px;
+        }
+
+        /* About section styles */
+        .about-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        /* Contact section styles */
+        .contact-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        /* Footer styles
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        } */
+        .logo {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* This maintains the aspect ratio */
+    margin: 10px; /* Adjust the margin as needed */
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.search-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Categories styles */
+.nav-categories {
+    position: relative;
+    cursor: pointer;
+}
+
+.categories-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-categories:hover .categories-list {
+    display: block;
+}
+
+.categories-list li {
+    margin: 5px 0;
+}
+
+.categories-list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1; 
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #ff3366; 
+}
+/* Navigation link styles */
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease; /* Add a smooth color transition */
+}
+
+.nav-list a:hover {
+    color: #ff3366; /* Change the color on hover */
+}
+
+/* Login and Signup link styles */
+.nav-list li:last-child a {
+    color: #ff3366; /* Customize the color */
+    font-weight: bold;
+}
+
+.nav-list li:last-child a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Company block styles */
+.company-block {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+.company-links a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.company-links a:hover {
+    color: #ff3366;
+}
+
+/* Help block styles */
+.help-block {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.help-links a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.help-links a:hover {
+    color: #ff3366;
+}
+
+/* Newsletter block styles */
+.newsletter-block {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter-block h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter-block p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.newsletter-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.newsletter-form button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.columns-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.column {
+    flex-basis: calc(33.33% - 20px); 
+    margin: 0 10px;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+/* Social media section styles */
+.connect-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.connect-section h2 {
+    margin-bottom: 10px;
+}
+
+.connect-section p {
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff3366;
+}
+/* Hero section styles */
+.hero {
+    background-image: url('picture1.jpg');
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat; 
+    /* width: 100em; */
+    height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+/* body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #clock {
+            font-size: 3em;
+            color: #333;
+        } */
+
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <header class="header">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li class="nav-categories">
+                    <span>Categories</span>
+                    <ul class="categories-list">
+                        <li><a href="#category1">Dresses</a></li>
+                        <li><a href="#category2">Handbags</a></li>
+                        <li><a href="#category3">Footwear</a></li>
+                        <li><a href="#category4">Accessories</a></li>
+                        <li><a href="#category5">Outerwear</a></li>
+                    </ul>
+                </li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#signup">Signup</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <img src="logo.png" alt="Shopping Logo" class="logo">
+            <h1>Welcome to My Website</h1>
+        </div>
+        <form class="search-form">
+            <input type="text" placeholder="Search products...">
+            <button type="submit">Search</button>
+        </form>
+        <!-- <div class="login-signup">
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+        </div> -->
+    </header>
+    
+
+    <section id="home" class="home-section">
+        <div class="hero">
+            <h1>Welcome to Women's Shopping Paradise</h1>
+            <p>Your one-stop destination for the latest trends in women's fashion.</p>
+            <a href="#shop" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <section  class="featured-products">
+        <h2>Shop Our Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1" class="product-image">
+                <h2 class="product-title">Elegant Floral Dress</h2>
+                <p class="product-price">$49.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2" class="product-image">
+                <h2 class="product-title">Stylish Leather Handbag</h2>
+                <p class="product-price">$89.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product3.jpg" alt="Product 3" class="product-image">
+                <h2 class="product-title">Casual Denim Jacket</h2>
+                <p class="product-price">$59.99</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>We are passionate about delivering top-notch fashion to women around the world.</p>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or inquiries, feel free to get in touch with us.</p>
+        <div class="contact-form">
+            <!-- Contact form goes here -->
+        </div>
+    </section>
+    <div class="columns-container">
+    <div class="column">
+    <section class="company-block">
+        <div class="company-links">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#gift-cards">Gift Cards</a>
+        </div>
+    </section>
+</div>
+<div class="column">
+    <section class="help-block">
+        <div class="help-links">
+            <a href="#faq">FAQ</a>
+            <a href="#shipping">Shipping</a>
+            <a href="#returns">Returns</a>
+        </div>
+    </section>
+    </div>
+    <div class="column">
+    <section class="newsletter-block">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay up to date with the latest trends and offers.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+    </div>
+<div>
+    <section class="connect-section">
+        <h2>Connect with Us</h2>
+        <p>Follow us on social media for the latest updates.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Women's Shopping Paradise. All rights reserved.</p>
+    </footer>
+</body>
+</html>
